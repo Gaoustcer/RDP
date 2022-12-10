@@ -13,7 +13,7 @@ public:
         size = copyobj.size;
         filepointer = copyobj.filepointer;
     }
-    filestruct * operator^(filestruct *);
+    filestruct & operator^(filestruct &);
     ~filestruct(){
         if(size != 0){
             delete [] filepointer;
@@ -21,6 +21,7 @@ public:
     }
     void outputintofile(const char *);
     filestruct* filecut(int );
+    filestruct & operator + (filestruct & );
 };
 
 // filestruct * 
