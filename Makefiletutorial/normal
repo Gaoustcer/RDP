@@ -1,1 +1,0 @@
-normalsrc.o: normalsrc.cpp /usr/include/stdc-predef.h normalhead.h
