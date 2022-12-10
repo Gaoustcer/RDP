@@ -2,7 +2,7 @@
 #include <fstream>
 #include <assert.h>
 #include <iostream>
-
+#include <string>
 using namespace std;
 char * fileread(const char * filename,int sizeoffilebyte){
     ifstream file(filename,ios::binary|ios::in);
@@ -26,4 +26,13 @@ filestruct* filestruct::operator^(filestruct *rightop){
     }
     filestruct * f = new filestruct(size,file);
     return f;
+}
+filestruct* filestruct::filecut(int cutnum){
+    assert (size % cutnum == 0);
+    int eachfilesize = size/cutnum;
+    string basicfilename("Codingorigingfile");
+    filestruct * files;
+    for(int i = 0;i < cutnum;i++){
+
+    }
 }
