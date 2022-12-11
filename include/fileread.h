@@ -20,10 +20,12 @@ public:
         }
     }
     void outputintofile(const char *);
-    filestruct* filecut(int );
+    filestruct** filecut(int );
     filestruct & operator + (filestruct & );
+    filestruct * operator + (filestruct * );
 };
 
 // filestruct * 
 char * fileread(const char * filepath,int sizeoffilebyte = 1024 * 1024 * 1024);
+// filestruct * operator+(filestruct * rightop,filestruct * leftop);
 // bool filewrite(const char * filepath,char * filecontent,int sizeoffilebype = 1024 * 1024 * 1024);
