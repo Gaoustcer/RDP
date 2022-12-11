@@ -13,7 +13,7 @@ int main(){
     for(int i = 0;i < 4;i++){
         cout << files[i].size << endl;        
     }
-    filestruct f(files[0] + files[1]);
+    filestruct f(files[0] + files[1] + files[2] + files[3]);
     cout << "new object\n";
     f.outputintofile("./reconstruct");
     // filestruct =
