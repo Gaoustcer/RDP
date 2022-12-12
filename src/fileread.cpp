@@ -60,6 +60,18 @@ filestruct** filestruct::filecut(int cutnum){
 // filestruct & filestruct::operator=(filestruct & rightop){
     
 // }
+filestruct * filestruct::operator^(filestruct * rightop){
+    assert(rightop->size == size);
+    char * ptr = new char[size];
+    int _size = size;
+    for(int i = 0;i < _size;i++){
+        ptr[i] = filepointer[i] ^ rightop->filepointer[i];
+    }
+    filestruct * obj = new filestruct(_size,ptr);
+    return obj;
+}
+
+
 filestruct & filestruct::operator+(filestruct & rightop){
     // cout << "size is " << size << " right size is " << rightop.size;
     int newsize = size + rightop.size;

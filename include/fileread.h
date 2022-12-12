@@ -14,6 +14,7 @@ public:
     //     filepointer = copyobj.filepointer;
     // }
     filestruct & operator^(filestruct &);
+    filestruct * operator^(filestruct *);
     ~filestruct(){
         if(size == 0){
             std::cout << "delete an non-element";
