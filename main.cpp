@@ -24,6 +24,9 @@ int main(){
             cout << arrfiles[i][j] -> size << endl;
         }
     }
+    filestruct outfile (*files[0] + *files[1] + *files[2] + *files[3]);
+    cout << "outfile size is " << outfile.size << endl;
+    outfile.outputintofile("./myfiles");
     // for(int i = 0;i < 4;i++){
     //     cout << files[i]->size << endl;        
     // }

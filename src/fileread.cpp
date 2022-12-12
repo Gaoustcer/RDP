@@ -21,7 +21,14 @@ char * fileread(const char * filename,int sizeoffilebyte){
 // bool filewrite(const char * filepath,char *)
 void filestruct::outputintofile(const char* filename){
     ofstream file(filename,ios::binary|ios::out);
+    for(int i = 0;i < 1024;i++){
+        filepointer[i * 1024 * 1024];
+    }
     file.write(filepointer,size * sizeof(char));
+    // for(int i = 0;i < 1024 * 1024 * 1024;i++){
+    //     filepointer[i];
+    // }
+    cout << "file write finish " << filename << endl;
     file.close();
     return ;
 }
@@ -50,7 +57,9 @@ filestruct** filestruct::filecut(int cutnum){
     }
     return files;
 }
-
+// filestruct & filestruct::operator=(filestruct & rightop){
+    
+// }
 filestruct & filestruct::operator+(filestruct & rightop){
     // cout << "size is " << size << " right size is " << rightop.size;
     int newsize = size + rightop.size;
@@ -63,6 +72,7 @@ filestruct & filestruct::operator+(filestruct & rightop){
     const filestruct & f = filestruct(newsize,ptr);
     // cout << "f size is " << f.size << endl;
     filestruct& anotherf = (filestruct &) f;
+    cout << " another f size " << anotherf.size << endl;
     // if(anotherf.size == 1024 * 1024 * 1024)
     //     anotherf.outputintofile("./anothertest");
     // cout << "another f size is " << anotherf.size << endl;
