@@ -17,8 +17,8 @@ filestruct ** getfirstcheckblock(filestruct ***fileblocks){
     // filestruct *checkin[4];
     filestruct ** checkin = new filestruct*[P];
     for(int i = 0;i < P;i++){
-        checkin[i] = fileblocks[i][0];
-        // fileblocks[i][0] ^ fileblocks[i][1] ^ fileblocks[i][2] ^ fileblocks[i][3]
+        checkin[i] = fileblocks[0][i];
+        // fileblocks[1][0] ^ fileblocks[2][0] ^ fileblocks[3][0] ^ fileblocks[4][0]
         for(int j = 1;j < P;j++){
             checkin[i] = * checkin[i] ^ fileblocks[j][i];
         }
@@ -38,7 +38,12 @@ int main(){
     for(int i = 0;i < P;i++){
         arrfiles[i] = files[i]->filecut(P);
     }
-    // filestruct ** checklineblock = getfirstcheckblock(arrfiles);
+    filestruct ** checklineblock = getfirstcheckblock(arrfiles);
+    filestruct * checkinblock = checklineblock[0];
+    for(int i = 1;i < P;i++){
+        checkinblock = * checkinblock + checklineblock[i];
+    }
+    checkinblock -> outputintofile("./Coding/linecheck");
     // for(int i = 0;i < P;i++){
     //     cout << "size of each block is " << checklineblock[i] -> size << endl;
     // }
@@ -46,15 +51,6 @@ int main(){
     // for(int i = 1;i < P;i++){
     //     newfile = *newfile + checklineblock[1];
     // }
-    for(int i = 0;i < P;i++){
-        filestruct * f = arrfiles[i][0];
-        for(int j = 1;j < P;j++){
-            f = * f + arrfiles[i][j];
-        }
-        char s[20] = "./Coding/test0";
-        s[strlen(s) - 1] = i + '0';
-        f->outputintofile(s);
-    }
     // newfile -> outputintofile("./newlinecheck");
     // for(int i = 0;i < P;i++){
     //     for(int j = 0;j < P;j++){
